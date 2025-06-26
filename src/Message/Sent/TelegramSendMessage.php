@@ -10,8 +10,9 @@ class TelegramSendMessage extends AbstractTelegramSendMessage
         int $chatId,
         private readonly string $text,
         string $botToken,
-        private readonly ?Keyboard $keyboard = null)
-    {
+        private readonly ?Keyboard $keyboard = null,
+        private readonly ?int $replyToMessageId = null,
+    ) {
         parent::__construct($chatId, $botToken);
     }
 
@@ -23,5 +24,10 @@ class TelegramSendMessage extends AbstractTelegramSendMessage
     public function getKeyboard(): ?Keyboard
     {
         return $this->keyboard;
+    }
+
+    public function getReplyToMessageId(): ?int
+    {
+        return $this->replyToMessageId;
     }
 }
