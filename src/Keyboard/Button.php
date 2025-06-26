@@ -39,4 +39,12 @@ class Button implements ButtonInterface
     {
         $this->callbackData = $callbackData;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'text' => $this->title,
+            'callback_data' => $this->callbackData,
+        ];
+    }
 }

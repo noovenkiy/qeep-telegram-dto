@@ -53,4 +53,16 @@ readonly class KeyboardButton implements ButtonInterface
     {
         return $this->webAppUrl;
     }
+
+    public function toArray(): array
+    {
+        return array_filter([
+            'text' => $this->title,
+            'request_contact' => $this->requestContact,
+            'request_location' => $this->requestLocation,
+            'web_app' => $this->webAppUrl ? ['url' => $this->webAppUrl] : null,
+        ], static function ($value) {
+            return $value !== null;
+        });
+    }
 }

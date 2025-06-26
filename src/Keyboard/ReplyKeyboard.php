@@ -43,4 +43,17 @@ class ReplyKeyboard extends Keyboard
     {
         return $this->removeKeyboard;
     }
+
+    public function toArray(): array
+    {
+        if ($this->removeKeyboard) {
+            return ['remove_keyboard' => true];
+        }
+
+        return [
+            'keyboard' => $this->getKeyboard(),
+            'is_persistent' => $this->isPersistent,
+            'resize_keyboard' => $this->resizeKeyboard,
+        ];
+    }
 }

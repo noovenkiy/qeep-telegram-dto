@@ -2,4 +2,7 @@
 
 namespace qeep\Telegram\DTO\Keyboard;
 
-interface ButtonInterface {}
+interface ButtonInterface
+{
+    public function toArray(): array;
+}

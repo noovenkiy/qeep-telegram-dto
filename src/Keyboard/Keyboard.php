@@ -36,4 +36,16 @@ abstract class Keyboard
     {
         return static::class;
     }
+
+    public function getKeyboard(): array
+    {
+        $keyboard = [];
+        foreach ($this->buttonLines as $buttonLine) {
+            $keyboard[] = $buttonLine->toArray();
+        }
+
+        return $keyboard;
+    }
+
+    abstract public function toArray(): array;
 }

@@ -34,4 +34,14 @@ class ButtonLine
     {
         $this->buttons = $buttons;
     }
+
+    public function toArray(): array
+    {
+        $buttonLine = [];
+        foreach ($this->buttons as $button) {
+            $buttonLine[] = $button->toArray();
+        }
+
+        return $buttonLine;
+    }
 }
