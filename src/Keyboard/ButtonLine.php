@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation as JMS;
 class ButtonLine
 {
     #[JMS\Expose]
-    #[JMS\Type('array<App\DTO\Telegram\Keyboard\Button>')]
+    #[JMS\Type('array<qeep\Telegram\DTO\Keyboard\Button>')]
     private array $buttons = [];
 
     public function __construct(ButtonInterface ...$buttons)

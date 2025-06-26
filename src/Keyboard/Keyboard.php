@@ -12,7 +12,7 @@ abstract class Keyboard
      */
     #[JMS\Expose]
     #[JMS\SerializedName('inline_keyboard')] // Это единственное отличие для inline клавиатуры
-    #[JMS\Type('array<App\DTO\Telegram\Keyboard\ButtonLine>')]
+    #[JMS\Type('array<qeep\Telegram\DTO\Keyboard\ButtonLine>')]
     protected array $buttonLines = [];
 
     public function addLine(ButtonLine $buttonLine): self
