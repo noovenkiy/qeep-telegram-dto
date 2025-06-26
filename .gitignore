@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/symfony,composer,git
-# Edit at https://www.toptal.com/developers/gitignore?templates=symfony,composer,git
+# Created by https://www.toptal.com/developers/gitignore/api/php-cs-fixer,git,symfony,composer
+# Edit at https://www.toptal.com/developers/gitignore?templates=php-cs-fixer,git,symfony,composer
 
 ### Composer ###
 composer.phar
@@ -23,6 +23,16 @@ composer.phar
 *_BASE_*.txt
 *_LOCAL_*.txt
 *_REMOTE_*.txt
+
+### PHP-CS-Fixer ###
+# Covers PHP CS Fixer
+# Reference: https://cs.symfony.com/
+
+# Generated files
+.php-cs-fixer.cache
+
+# Local config See: https://cs.symfony.com/doc/config.html
+.php-cs-fixer.php
 
 ### Symfony ###
 # Cache and logs (Symfony2)
@@ -81,4 +91,4 @@ composer.phar
 /web/css/
 /web/js/
 
-# End of https://www.toptal.com/developers/gitignore/api/symfony,composer,git
+# End of https://www.toptal.com/developers/gitignore/api/php-cs-fixer,git,symfony,composer
