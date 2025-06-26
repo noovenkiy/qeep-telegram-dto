@@ -1,0 +1,41 @@
+#!/bin/bash
+
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+CS_FIXER="$PROJECT_ROOT/vendor/bin/php-cs-fixer"
+CONFIG="$PROJECT_ROOT/.php-cs-fixer.dist.php"
+
+echo "Running PHP CS Fixer on staged files..."
+
+# Проверка наличия инструментов
+if [ ! -f "$CS_FIXER" ]; then
+    echo "❌ PHP CS Fixer not found. Run 'composer install' first!"
+    exit 1
+fi
+
+# Получаем список файлов с абсолютными путями
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.php$' | sed "s|^|$PROJECT_ROOT/|")
+
+if [ -z "$FILES" ]; then
+    echo "✅ No PHP files in commit. Skipping."
+    exit 0
+fi
+
+# Проверка стиля
+echo "Checking code style..."
+"$CS_FIXER" fix --config="$CONFIG" --allow-risky=yes --dry-run --diff $FILES
+
+if [ $? -ne 0 ]; then
+    echo "❗ PHP CS Fixer found issues. Running fixes..."
+    "$CS_FIXER" fix --config="$CONFIG" --allow-risky=yes $FILES
+    
+    # Возвращаем относительные пути для git add
+    REL_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.php$')
+    git add $REL_FILES
+    
+    echo "✅ Fixed! Changes were automatically staged."
+    echo "⚠️ Please REVIEW CHANGES and commit again."
+    exit 1
+fi
+
+echo "✅ Code style is OK!"
+exit 0
