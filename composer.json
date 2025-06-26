@@ -10,16 +10,16 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "bash -c '[ -f .git-hooks/pre-commit ] && command -v git >/dev/null 2>&1 && if [ -d $(git rev-parse --git-path hooks) ]; then cp .git-hooks/pre-commit $(git rev-parse --git-path hooks)/ && chmod +x $(git rev-parse --git-path hooks)/pre-commit; fi'"
+            "git config core.hooksPath .git-hooks || true"
         ],
         "post-update-cmd": [
-            "bash -c '[ -f .git-hooks/pre-commit ] && command -v git >/dev/null 2>&1 && if [ -d $(git rev-parse --git-path hooks) ]; then cp .git-hooks/pre-commit $(git rev-parse --git-path hooks)/ && chmod +x $(git rev-parse --git-path hooks)/pre-commit; fi'"
+            "git config core.hooksPath .git-hooks || true"
         ],
         "fix": "vendor/bin/php-cs-fixer fix"
     },
     "require": {
         "php": "^8.2",
-        "symfony/serializer": "^6.3",
+        "symfony/serializer": "^6.3 || ^7.0",
         "jms/serializer": "^3.32"
     },
     "require-dev": {
