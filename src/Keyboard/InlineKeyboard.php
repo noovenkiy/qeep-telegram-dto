@@ -1,5 +1,5 @@
 <?php
 
-namespace qeep\DTO\Telegram\Keyboard;
+namespace qeep\Telegram\DTO\Keyboard;
 
 class InlineKeyboard extends Keyboard {}

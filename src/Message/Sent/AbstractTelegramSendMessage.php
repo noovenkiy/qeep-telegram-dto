@@ -1,6 +1,6 @@
 <?php
 
-namespace qeep\DTO\Telegram\Message\Sent;
+namespace qeep\Telegram\DTO\Message\Sent;
 
 abstract class AbstractTelegramSendMessage
 {

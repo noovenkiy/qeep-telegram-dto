@@ -1,6 +1,6 @@
 <?php
 
-namespace qeep\DTO\Telegram\Message\Received;
+namespace qeep\Telegram\DTO\Message\Received;
 
 use DateTimeImmutable;
 use DateTimeInterface;

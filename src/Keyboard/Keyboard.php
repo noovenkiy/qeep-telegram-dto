@@ -1,6 +1,6 @@
 <?php
 
-namespace qeep\DTO\Telegram\Keyboard;
+namespace qeep\Telegram\DTO\Keyboard;
 
 use JMS\Serializer\Annotation as JMS;
 
